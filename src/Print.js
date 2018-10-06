@@ -37,7 +37,8 @@ class Table extends Component {
 
     render() {
         return (
-            <ReactTable className="table"
+            <ReactTable style={{border: '2px solid #022036'}}
+            className="table"
                 data={this.setData()}
                 columns={this.setColumns()}
                 showPagination={false}
@@ -58,7 +59,7 @@ export default class Print extends React.Component {
                     <Table {...this.props} />
                 </div>
                 <ReactToPrint
-                    trigger={() => <a href="#">Print this out!</a>}
+                    trigger={() => <a href="#" className="print">Print this out!</a>}
                     content={() => this.componentRef}
                 />
             </div>

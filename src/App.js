@@ -18,7 +18,6 @@ class App extends Component {
     this._handleName = this._handleName.bind(this);
     this._handleAmount = this._handleAmount.bind(this);
 
-
   }
   _handleName(e) {
     e.preventDefault();
@@ -52,7 +51,7 @@ class App extends Component {
             Amount:
             <input type="number" placeholder="ENter the amount" value={this.state.amount} onChange={this._handleAmount}></input>
           </label>
-          <button onClick={e => { this.setState({ submit: !this.state.submit }) }}>SUBMIT</button>
+          <button className="submit" onClick={e => { this.setState({ submit: !this.state.submit }) }}>SUBMIT</button>
         </div>
         {this.state.submit ? <Table name={this.state.name} receiptId={this.state.receiptId} amount={this.state.amount} date={this.state.date} /> : ''}
       </div>

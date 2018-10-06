@@ -51,9 +51,17 @@ code {
   position: relative;
 }
 
-/* .receipt {
-  width: 10px;
-  display:inline;
-  position: relative;
-  top: 1rem;
-} */
+.print, .submit{
+  text-decoration: none;
+  box-shadow: 1px 1px #467292;
+  color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  background: #022036;
+}
+
+.print:hover, .submit:hover {
+  background: #467292;
+  box-shadow: 1px 1px #022036;
+
+}
