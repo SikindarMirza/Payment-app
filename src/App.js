@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Table from './Print';
+import Header from './Header';
 import './App.css';
 
 class App extends Component {
@@ -41,16 +42,18 @@ class App extends Component {
     console.log(this.state.name)
     return (
       <div>
-        <h1>{this.state.appName}</h1>
-        <label>
-          Name:
-          <input type="text" placeholder="ENter the name" value={this.state.name} onChange={this._handleName}></input>
-        </label>
-        <label>
-          Amount:
-          <input type="number" placeholder="ENter the amount" value={this.state.amount} onChange={this._handleAmount}></input>
-        </label>
-        <button onClick={e => { this.setState({ submit: !this.state.submit }) }}>SUBMIT</button>
+        <Header />
+        <div className="values">
+          <label>
+            Name:
+            <input type="text" placeholder="ENter the name" value={this.state.name} onChange={this._handleName}></input>
+          </label>
+          <label>
+            Amount:
+            <input type="number" placeholder="ENter the amount" value={this.state.amount} onChange={this._handleAmount}></input>
+          </label>
+          <button onClick={e => { this.setState({ submit: !this.state.submit }) }}>SUBMIT</button>
+        </div>
         {this.state.submit ? <Table name={this.state.name} receiptId={this.state.receiptId} amount={this.state.amount} date={this.state.date} /> : ''}
       </div>
     );

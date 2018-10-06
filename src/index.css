@@ -1,23 +1,59 @@
 body {
-  margin: 0;
-  padding: 0;
+  background: linear-gradient(-45deg,#23A6D5, #23D5AB);
+	background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+  color: #022036;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
+.Header{
+  padding-top: 2rem;
+  position: absolute;
+  top:0%;
+  left:0%;
+  width:100%;
+  height: 10%;
+  background-color:#022036;
+}
 .table {
+  position: relative;
+  top: 5rem;
   width: 60%;
   height: 20rem;
   margin:auto;
   font: #fff;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
- 
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New"; 
 }
+
+.values {
+  top: 10rem;
+  position: relative;
+}
+
+/* .receipt {
+  width: 10px;
+  display:inline;
+  position: relative;
+  top: 1rem;
+} */

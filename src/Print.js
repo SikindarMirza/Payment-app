@@ -52,7 +52,7 @@ export default class Print extends React.Component {
     render() {
         return (
             <div>
-                <div ref={el => (this.componentRef = el)}>
+                <div ref={el => (this.componentRef = el)} className="receipt">
                     <h2>KGN colony</h2>
                     <h2 className="receipt">Receipt Id: {Math.random().toString(36).substr(2, 9)}</h2>
                     <Table {...this.props} />
