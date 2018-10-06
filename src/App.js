@@ -21,18 +21,13 @@ class App extends Component {
   }
   _handleName(e) {
     e.preventDefault();
-    this.setState({ name: e.target.value });
-    console.log(this.state.name);
+    this.setState({ name: e.target.value, submit: false });
   }
   _handleAmount(e) {
-    this.setState({ amount: e.target.value });
+    e.preventDefault();
+    this.setState({ amount: e.target.value, submit: false });
   }
-  // function Date() {
 
-  // }
-  // function ReceiptId(){
-  //   return Math.random();
-  // }
   componentWillMount() {
     const date = new Date();
     const dd = date.getDate();
@@ -47,7 +42,6 @@ class App extends Component {
     return (
       <div>
         <h1>{this.state.appName}</h1>
-       
         <label>
           Name:
           <input type="text" placeholder="ENter the name" value={this.state.name} onChange={this._handleName}></input>
@@ -56,12 +50,7 @@ class App extends Component {
           Amount:
           <input type="number" placeholder="ENter the amount" value={this.state.amount} onChange={this._handleAmount}></input>
         </label>
-        {/* { Math.random()} */}
-        {/* { new Date();} */}
-        {/* <ReceiptId /> */}
-        
-        <button onClick={e => { this.setState({submit:!this.state.submit}) }}>SUBMIT</button>
-        
+        <button onClick={e => { this.setState({ submit: !this.state.submit }) }}>SUBMIT</button>
         {this.state.submit ? <Table name={this.state.name} receiptId={this.state.receiptId} amount={this.state.amount} date={this.state.date} /> : ''}
       </div>
     );
