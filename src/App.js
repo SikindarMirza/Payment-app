@@ -1,30 +1,31 @@
 import React, { Component } from 'react';
 import Table from './Print';
-// import ReactToPrint from 'react-to-print';
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      appName:"KGN Colony",
-      name:"",
-      amount:"",
-      date:"",
-      receiptId:"1"
+      appName: "KGN Colony",
+      name: "",
+      amount: "",
+      date: "",
+      receiptId: "1",
+      submit: false
     };
 
     this._handleName = this._handleName.bind(this);
     this._handleAmount = this._handleAmount.bind(this);
-    
+
 
   }
   _handleName(e) {
-    this.setState({name: e.target.value});
+    e.preventDefault();
+    this.setState({ name: e.target.value });
     console.log(this.state.name);
   }
   _handleAmount(e) {
-    this.setState({amount: e.target.value});
+    this.setState({ amount: e.target.value });
   }
   // function Date() {
 
@@ -35,16 +36,18 @@ class App extends Component {
   componentWillMount() {
     const date = new Date();
     const dd = date.getDate();
-    const mm = date.getMonth()+1;
+    const mm = date.getMonth() + 1;
     const yy = date.getFullYear();
 
     const today = dd + '/' + mm + '/' + yy;
-    this.setState({date: today});
+    this.setState({ date: today });
   }
   render() {
+    console.log(this.state.name)
     return (
       <div>
         <h1>{this.state.appName}</h1>
+       
         <label>
           Name:
           <input type="text" placeholder="ENter the name" value={this.state.name} onChange={this._handleName}></input>
@@ -56,52 +59,13 @@ class App extends Component {
         {/* { Math.random()} */}
         {/* { new Date();} */}
         {/* <ReceiptId /> */}
-        {this.state.date}
-        {/* <Table name={this.state.name} receiptId={this.state.receiptId} amount={this.state.amount} date = {this.state.date} /> */}
-        <button>PRINT</button>
+        
+        <button onClick={e => { this.setState({submit:!this.state.submit}) }}>SUBMIT</button>
+        
+        {this.state.submit ? <Table name={this.state.name} receiptId={this.state.receiptId} amount={this.state.amount} date={this.state.date} /> : ''}
       </div>
     );
   }
 }
-
-
-// class Table extends Component {
-//     render() {
-//       return (
-//         <table>
-//           <thead>
-//             <th>Receipt ID</th>
-//             <th>Name</th>
-//             <th>Amount</th>
-//             <th>Date</th>
-//           </thead>
-//           <tbody>
-//             <tr>
-//               <td>{this.props.receiptID}</td>
-//               <td>{this.props.name}</td>
-//               <td>{this.props.amount}</td>
-//               <td>{this.props.date}</td>
-//             </tr>          
-//           </tbody>
-//         </table>
-//         // <h1>knasslkdsn</h1>
-//       );
-//     }
-//   }
-   
-//   class Print extends React.Component {
-//     render() {
-//       return (
-//         <div>
-//           <ReactToPrint
-//             trigger={() => <a href="#">Print this out!</a>}
-//             content={() => this.componentRef}
-//           />
-//           <Table ref={el => (this.componentRef = el)} />
-//         </div>
-//       );
-//     }
-//   }
-  
 
 export default App;
