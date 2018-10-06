@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Table from './Print';
+// import ReactToPrint from 'react-to-print';
 import './App.css';
 
 class App extends Component {
@@ -9,7 +10,8 @@ class App extends Component {
       appName:"KGN Colony",
       name:"",
       amount:"",
-      date:""
+      date:"",
+      receiptId:"1"
     };
 
     this._handleName = this._handleName.bind(this);
@@ -55,13 +57,51 @@ class App extends Component {
         {/* { new Date();} */}
         {/* <ReceiptId /> */}
         {this.state.date}
-
+        {/* <Table name={this.state.name} receiptId={this.state.receiptId} amount={this.state.amount} date = {this.state.date} /> */}
         <button>PRINT</button>
-         
-
       </div>
     );
   }
 }
+
+
+// class Table extends Component {
+//     render() {
+//       return (
+//         <table>
+//           <thead>
+//             <th>Receipt ID</th>
+//             <th>Name</th>
+//             <th>Amount</th>
+//             <th>Date</th>
+//           </thead>
+//           <tbody>
+//             <tr>
+//               <td>{this.props.receiptID}</td>
+//               <td>{this.props.name}</td>
+//               <td>{this.props.amount}</td>
+//               <td>{this.props.date}</td>
+//             </tr>          
+//           </tbody>
+//         </table>
+//         // <h1>knasslkdsn</h1>
+//       );
+//     }
+//   }
+   
+//   class Print extends React.Component {
+//     render() {
+//       return (
+//         <div>
+//           <ReactToPrint
+//             trigger={() => <a href="#">Print this out!</a>}
+//             content={() => this.componentRef}
+//           />
+//           <Table ref={el => (this.componentRef = el)} />
+//         </div>
+//       );
+//     }
+//   }
+  
 
 export default App;
